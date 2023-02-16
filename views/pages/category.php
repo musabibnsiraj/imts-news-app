@@ -17,14 +17,9 @@ $category = $cat->getById($catId);
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1> 
+          <h1>
             <?php
-            echo 'Id: '.$category['id'];
-            ?>
-          </h1>
-          <h1> 
-            <?php
-            echo 'Name: '.$category['name'];
+            echo $category['name'];
             ?>
           </h1>
         </div>
