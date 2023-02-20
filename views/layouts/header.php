@@ -68,5 +68,12 @@ $categories = $cat->getAll();
         </li>
       </ul>
 
+      <!-- Right navbar links -->
+      
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item mr-5">
+        <a href="<?= url('admin.php') ?>" class="btn btn-primary">Admin</a>
+        </li>
+      </ul>
     </nav>
     <!-- /.navbar -->
