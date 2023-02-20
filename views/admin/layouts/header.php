@@ -103,7 +103,7 @@ require_once __DIR__ . '/../../../config.php';
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="./index2.html" class="nav-link">
+                  <a href="<?= url('/views/admin/categories/list.php') ?>" class="nav-link">
                     <p>List Category</p>
                   </a>
                 </li>

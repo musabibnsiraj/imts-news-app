@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . './../../models/Category.php';
 
 $cat = new Category();
-$categories = $cat->getAll();
+$categories = $cat->getAllActive();
 ?>
 
 <!DOCTYPE html>

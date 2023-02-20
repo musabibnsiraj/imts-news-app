@@ -12,7 +12,7 @@ class Category extends BaseModel
         return "categories";
     }
 
-    public function getAll()
+    public function getAllActive()
     {
         return $this->pm->run("SELECT * FROM categories where active = 1");
     }
