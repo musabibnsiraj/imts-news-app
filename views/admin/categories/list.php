@@ -49,13 +49,15 @@ $categories = $c->getAll();
                                     <td><?= $c['id']; ?></td>
                                     <td><?= $c['name']; ?></td>
                                     <td>
-                                        <?php if ($c['active'] == 1) { ?>
-                                            <span class="badge bg-success">Active</span>
-                                        <?php
-                                        } else {
-                                        ?>
-                                            <span class="badge bg-danger">Deactive</span>
-                                        <?php } ?>
+                                        <div class="m-2">
+                                            <?php if ($c['active'] == 1) { ?>
+                                                <span class="badge bg-success">Active</span>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <span class="badge bg-danger">Deactive</span>
+                                            <?php } ?>
+                                        </div>
                                     </td>
                                     <td>
                                         <div>

@@ -97,7 +97,7 @@ require_once __DIR__ . '/../../../config.php';
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index.html" class="nav-link">
+                  <a href="<?= url('/views/admin/categories/frm_new_category.php') ?>" class="nav-link">
          
                     <p>Create Category</p>
                   </a>
