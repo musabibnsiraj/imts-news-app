@@ -37,9 +37,9 @@ class Post extends BaseModel
 
     protected function addNewRec()
     {
-        $param = array(':title' => $this->title, ':summary' => $this->summary, ':body,' => $this->body, ':breaking_news' => $this->breaking_news, ':user_id' => $this->user_id, ':cat_id' => $this->cat_id, ':image' => $this->image, ':status' => $this->status, ':selected' => $this->selected);
-        print_r($param);
-        die;
+        $param = array(':title' => $this->title, ':summary' => $this->summary, ':body' => $this->body, ':breaking_news' => $this->breaking_news, ':user_id' => $this->user_id, ':cat_id' => $this->cat_id, ':image' => $this->image, ':status' => $this->status, ':selected' => $this->selected);
+        // print_r($param);
+        // die;
 
         return $this->pm->run("INSERT INTO posts(title,summary,body,breaking_news,user_id,cat_id,image,status,selected) values(:title,:summary,:body,:breaking_news,:user_id,:cat_id,:image,:status,:selected)", $param);
     }
