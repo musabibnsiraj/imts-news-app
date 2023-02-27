@@ -45,7 +45,7 @@ $categories = $c->getAllActive();
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Titile</label>
-                                <input required type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                <input required type="text" name="title" class="form-control" id="title" placeholder="Enter Title">
                             </div>
 
                             <div class="form-group">
@@ -57,7 +57,7 @@ $categories = $c->getAllActive();
                             </textarea>
                             <div class="form-group">
                                 <label>Category</label>
-                                <select class="form-control" required>
+                                <select class="form-control" required name="cat_id">
                                     <?php
                                     foreach ($categories as $c) {
                                     ?>
@@ -72,7 +72,7 @@ $categories = $c->getAllActive();
                                 <label for="exampleInputFile">Image</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                                        <input name="image" type="file" class="custom-file-input" id="exampleInputFile" accept="image/*">
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
                                     <div class="input-group-append">
@@ -82,7 +82,7 @@ $categories = $c->getAllActive();
                             </div>
                             <div class="form-group">
                                 <label>Status</label>
-                                <select class="form-control" required>
+                                <select class="form-control" required name="status"">
                                     <option value="enable"> Active </option>
                                     <option value="disable"> Deactive </option>
                                 </select>

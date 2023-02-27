@@ -29,6 +29,7 @@ abstract class BaseModel
 
     public function save()
     {
+       
         if (isset($this->id) && $this->id > 0) {
             return $this->updateRec();
         } else {
