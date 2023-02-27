@@ -61,7 +61,7 @@ $posts = $c->getAll();
 
                                     <th>
                                         <div class="m-2">
-                                            <img class="img-fluid rounded mx-auto d-block " src="<?= asset('assets/img/post-images/' . $c['image']) ?>">
+                                            <img class="img-fluid rounded mx-auto d-block " src="<?= asset('assets/uploads/' . $c['image']) ?>">
                                         </div>
                                     </th>
                                     <td>
