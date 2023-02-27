@@ -17,6 +17,8 @@ require_once __DIR__ . '/../../../config.php';
   <link rel="stylesheet" href="<?= asset('assets/plugins/fontawesome-free/css/all.min.css') ?>">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= asset('assets/css/adminlte.css') ?>">
+  <!-- summernote -->
+  <link rel="stylesheet" href="<?= asset('assets/plugins/summernote/summernote-bs4.min.css') ?>">
   <style>
     .logo {
       width: 100px;
@@ -98,7 +100,7 @@ require_once __DIR__ . '/../../../config.php';
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="<?= url('/views/admin/categories/frm_new_category.php') ?>" class="nav-link">
-         
+
                     <p>Create Category</p>
                   </a>
                 </li>
@@ -120,13 +122,13 @@ require_once __DIR__ . '/../../../config.php';
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index.html" class="nav-link">
-         
+                  <a href="<?= url('/views/admin/posts/create.php') ?>" class="nav-link">
+
                     <p>Create News</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="./index2.html" class="nav-link">
+                  <a href="<?= url('/views/admin/posts/list.php') ?>" class="nav-link">
                     <p>List News</p>
                   </a>
                 </li>

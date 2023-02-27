@@ -3,6 +3,19 @@ require_once('../layouts/header.php');
 require_once __DIR__ . '../../../../models/Category.php';
 $c = new Category();
 $categories = $c->getAll();
+
+if (isset($_GET["delete_btn"])) {
+    // Get the ID of the item to delete
+    $id = $_POST["delete_id"];
+
+    // Display a confirmation message
+    echo "<script>
+            var result = confirm('Are you sure you want to delete this item?');
+            if (result) {
+              window.location.href = 'delete.php?id=$id';
+            }
+          </script>";
+}
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -62,7 +75,7 @@ $categories = $c->getAll();
                                     <td>
                                         <div>
                                             <a class="btn btn-sm btn-info m-2" href="frm_edit_category.php?id=<?php echo $c['id']; ?>">Edit</a>
-                                            <a class="btn btn-sm btn-danger m-2" href="delete.php?id=<?php echo $c['id']; ?>">Delete</a>
+                                            <a class="btn btn-sm btn-danger m-2" href="#" onclick="confirmDelete(<?= $c['id']; ?>)">Delete</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -79,3 +92,14 @@ $categories = $c->getAll();
 
 </div>
 <?php require_once('../layouts/footer.php'); ?>
+<script>
+    function confirmDelete(id) {
+        // Display a confirmation message
+        var result = confirm("Are you sure you want to delete this item?");
+
+        // If the user clicks "OK", redirect to the delete.php page with the ID as a parameter
+        if (result) {
+            window.location.href = "delete.php?id=" + id;
+        }
+    }
+</script>

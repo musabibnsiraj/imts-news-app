@@ -11,6 +11,10 @@ class Post extends BaseModel
     {
         return "posts";
     }
+    public function getAll()
+    {
+        return $this->pm->run("SELECT * FROM " . $this->getTableName() . " order by id desc");
+    }
 
     public function getLatest()
     {
