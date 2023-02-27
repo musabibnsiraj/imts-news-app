@@ -6,11 +6,11 @@ $post->id = $_POST['id'] ?? '';
 $post->title = $_POST['title'];
 $post->summary = $_POST['summary'];
 $post->body = $_POST['body'];
-$post->breaking_news = $_POST['breaking_news'];
+$post->breaking_news = $_POST['breaking_news'] ?? 0;
 $post->user_id = $_POST['user_id'];
 $post->cat_id = $_POST['cat_id'];
-$post->status = $_POST['status'];
-$post->selected = $_POST['selected'];
+$post->status = $_POST['status'] ?? 'disable';
+$post->selected = $_POST['selected'] ?? 0;
 // print_r($_FILES["image"]);
 if ($_FILES["image"]) {
     $target_dir = "/../../../assets/uploads/";
@@ -27,8 +27,6 @@ if ($_FILES["image"]) {
     } else {
         $uploadOk = 0;
     }
-
-
     // Check file size -> 500KB
     if ($_FILES["image"]["size"] > 500000) {
         echo "Sorry, your file is too large.";

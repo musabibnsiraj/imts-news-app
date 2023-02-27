@@ -44,8 +44,8 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `breaking_news` tinyint(5) NOT NULL DEFAULT '1',
   `Column 12` tinyint(5) NOT NULL DEFAULT '1',
   `published_at` datetime DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
+  'created_at' TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  'updated_at' TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
   PRIMARY KEY (`id`),
   KEY `cat_id` (`cat_id`),
   KEY `user_id` (`user_id`),

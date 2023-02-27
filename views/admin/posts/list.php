@@ -37,7 +37,7 @@ $posts = $c->getAll();
                             <tr>
                                 <th style="width: 10px">#</th>
                                 <th>Title</th>
-                           
+                                <th>Body</th>
                                 <th>Image</th>
                                 <th>Status</th>
                                 <th style="width: 200px">Options</th>
@@ -57,11 +57,18 @@ $posts = $c->getAll();
                                         echo $str;
                                         ?>
                                     </td>
-                             
+                                    <td>
+                                        <?php
+                                        $str =  $c['body'];
+                                        if (strlen($str) > 150)
+                                            $str = substr($str, 0, 150) . '...';
+                                        echo $str;
+                                        ?>
+                                    </td>
 
                                     <th>
                                         <div class="m-2">
-                                            <img class="img-fluid rounded mx-auto d-block " src="<?= asset('assets/uploads/' . $c['image']) ?>">
+                                            <img class="img-fluid rounded mx-auto d-block " src="<?= asset('assets/img/post-images/' . $c['image']) ?>">
                                         </div>
                                     </th>
                                     <td>
