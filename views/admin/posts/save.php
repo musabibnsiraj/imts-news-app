@@ -73,8 +73,10 @@ if (isset($_FILES["image"]) && $_FILES['image']['error'] == 0) {
             echo "Sorry, there was an error uploading your file.";
         }
     }
-}else{
+}elseif($edit){
     $post->image = $exist['image'];
+}else{
+    die('Image file is required!');
 }
 
 $result = $post->save();

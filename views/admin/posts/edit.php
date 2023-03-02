@@ -22,7 +22,7 @@ $categories = $c->getAllActive();
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active"><a href="#">News</a></li>
                         <li class="breadcrumb-item active"><a href="#">List</a></li>
-                        <li class="breadcrumb-item active"><a href="#">Create News</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Edit News</a></li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
