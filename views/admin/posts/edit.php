@@ -72,13 +72,13 @@ $categories = $c->getAllActive();
                                 </select>
                             </div>
                             <div class="image">
-                                <img src="<?= asset('assets/uploads/' . $post['image']) ?>" class="img-circle elevation-2" alt="User Image" style="width:100px">
+                                <img  id="imagePreview" src="<?= asset('assets/uploads/' . $post['image']) ?>" class="img-circle elevation-2" alt="User Image" style="width:100px">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Image</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input name="image" type="file" class="custom-file-input" id="exampleInputFile" accept="image/*">
+                                        <input name="image" type="file" class="custom-file-input" id="image" accept="image/*">
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
                                     <div class="input-group-append">
@@ -90,7 +90,7 @@ $categories = $c->getAllActive();
                                 <label>Status</label>
                                 <select class="form-control" required name="status"">
                                 <option default></option>
-                                    <option <?= $post['status'] == 'enable' ? 'selected' : ''; ?> value="enable"> Active </option>
+                                    <option <?= $post['status'] == 'enable' ? 'selected' : ''; ?> value=" enable"> Active </option>
                                     <option <?= $post['status'] == 'disable' ? 'selected' : ''; ?> value="disable"> Deactive </option>
                                 </select>
                             </div>
@@ -102,7 +102,7 @@ $categories = $c->getAllActive();
                             </div>
                             <div class="form-group">
                                 <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                    <input type="checkbox" class="custom-control-input" name="selected" value="1" id="customSwitch5" <?= $post['selected'] != 0 ? 'checked' : ''; ?> >
+                                    <input type="checkbox" class="custom-control-input" name="selected" value="1" id="customSwitch5" <?= $post['selected'] != 0 ? 'checked' : ''; ?>>
                                     <label class="custom-control-label" for="customSwitch5">Seleted </label>
                                 </div>
                             </div>
@@ -122,3 +122,23 @@ $categories = $c->getAllActive();
 </div>
 
 <?php require_once('../layouts/footer.php'); ?>
+
+<script>
+    $(document).ready(function() {
+        $("#image").change(function() {
+            readURL(this);
+        });
+    });
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#imagePreview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
