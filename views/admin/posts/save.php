@@ -1,7 +1,14 @@
 <?php
 require_once '../../../models/Post.php';
-//
+
+
 $post = new Post();
+$edit = false;
+if (isset($_POST['id'])) {
+    $exist = $post->getById($_POST['id']);
+    $edit = true;
+}
+
 $post->id = $_POST['id'] ?? '';
 $post->title = $_POST['title'];
 $post->summary = $_POST['summary'];
@@ -11,13 +18,14 @@ $post->user_id = $_POST['user_id'];
 $post->cat_id = $_POST['cat_id'];
 $post->status = $_POST['status'] ?? 'disable';
 $post->selected = $_POST['selected'] ?? 0;
-// print_r($_FILES["image"]);
-if ($_FILES["image"]) {
+
+
+if (isset($_FILES["image"]) && $_FILES['image']['error'] == 0) {
     $target_dir = "/../../../assets/uploads/";
-    $target_file = __DIR__ . $target_dir . basename($_FILES["image"]["name"]);
-    $imageName = basename($_FILES["image"]["name"]) ?? "";
     $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    $imageFileType = strtolower(pathinfo(basename($_FILES["image"]["name"]), PATHINFO_EXTENSION));
+    $imageName = time() . '.' . $imageFileType;
+    $target_file = __DIR__ . $target_dir . $imageName;
 
     // Check if image file is a actual image or fake image
 
@@ -47,7 +55,19 @@ if ($_FILES["image"]) {
         echo "Sorry, your file was not uploaded.";
         // if everything is ok, try to upload file
     } else {
+
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            if ($edit) {
+                $exist_file_dir = __DIR__ . $target_dir . $exist['image'];
+                if (file_exists($exist_file_dir)) {
+                    if (unlink($exist_file_dir)) {
+                        echo "File deleted successfully.";
+                    } else {
+                        echo "File deletion failed.";
+                    }
+                }
+            }
+
             $post->image = $imageName;
         } else {
             echo "Sorry, there was an error uploading your file.";

@@ -44,5 +44,7 @@ class Post extends BaseModel
 
     protected function updateRec()
     {
+        $param = array(':id' => $this->id, ':title' => $this->title, ':summary' => $this->summary, ':body' => $this->body, ':breaking_news' => $this->breaking_news, ':user_id' => $this->user_id, ':cat_id' => $this->cat_id, ':image' => $this->image, ':status' => $this->status, ':selected' => $this->selected);
+        return $this->pm->run("UPDATE posts SET title = :title, summary = :summary,body = :body,breaking_news = :breaking_news,user_id = :user_id,cat_id = :cat_id,image = :image,status = :status,selected = :selected WHERE id = :id", $param);
     }
 }
