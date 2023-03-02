@@ -1,7 +1,7 @@
 <?php
 
-require_once '../../../models/Category.php';
-$c = new Category();
+require_once '../../../models/Post.php';
+$c = new Post();
 $result = $c->deleteRec($_GET['id']);
 if($result != -1)
 {
