@@ -16,7 +16,7 @@ $post->body = $_POST['body'];
 $post->breaking_news = $_POST['breaking_news'] ?? 0;
 $post->user_id = $_POST['user_id'];
 $post->cat_id = $_POST['cat_id'];
-$post->status = $_POST['status'] ?? 'disable';
+$post->status = $_POST['status'] ? 'enable': 'disable';
 $post->selected = $_POST['selected'] ?? 0;
 
 
@@ -73,6 +73,8 @@ if (isset($_FILES["image"]) && $_FILES['image']['error'] == 0) {
             echo "Sorry, there was an error uploading your file.";
         }
     }
+}else{
+    $post->image = $exist['image'];
 }
 
 $result = $post->save();

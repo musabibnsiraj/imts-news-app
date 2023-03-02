@@ -52,9 +52,7 @@ $categories = $c->getAllActive();
                                 <label>Summary</label>
                                 <textarea required class="form-control" name="summary" rows="3" placeholder="Enter ..."></textarea>
                             </div>
-                            <textarea id="summernote" name="body">
-                                Place <em>some</em> <u>text</u> <strong>here</strong>
-                            </textarea>
+                            <textarea id="summernote" name="body"></textarea>
                             <div class="form-group">
                                 <label>Category</label>
                                 <select class="form-control" required name="cat_id">

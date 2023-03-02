@@ -56,9 +56,7 @@ $categories = $c->getAllActive();
                                 <label>Summary</label>
                                 <textarea required class="form-control" name="summary" rows="3" placeholder="Enter ..."><?= $post['summary'] ?></textarea>
                             </div>
-                            <textarea id="summernote" name="body">
-                               <?= $post['body']; ?>
-                            </textarea>
+                            <textarea id="summernote" name="body"><?= $post['body']; ?></textarea>
                             <div class="form-group">
                                 <label>Category</label>
                                 <select class="form-control" required name="cat_id">
@@ -92,19 +90,19 @@ $categories = $c->getAllActive();
                                 <label>Status</label>
                                 <select class="form-control" required name="status"">
                                 <option default></option>
-                                    <option <?= $post['status'] == 'enable' ? 'selected' : ''; ?> value=" enable"> Active </option>
+                                    <option <?= $post['status'] == 'enable' ? 'selected' : ''; ?> value="enable"> Active </option>
                                     <option <?= $post['status'] == 'disable' ? 'selected' : ''; ?> value="disable"> Deactive </option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                    <input type="checkbox" class="custom-control-input" name="breaking_news" value="1" id="customSwitch4">
+                                    <input type="checkbox" class="custom-control-input" name="breaking_news" value="1" id="customSwitch4" <?= $post['breaking_news'] != 0 ? 'checked' : ''; ?>>
                                     <label class="custom-control-label" for="customSwitch4">Breaking News </label>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                    <input type="checkbox" class="custom-control-input" name="selected" value="1" id="customSwitch5">
+                                    <input type="checkbox" class="custom-control-input" name="selected" value="1" id="customSwitch5" <?= $post['selected'] != 0 ? 'checked' : ''; ?> >
                                     <label class="custom-control-label" for="customSwitch5">Seleted </label>
                                 </div>
                             </div>
