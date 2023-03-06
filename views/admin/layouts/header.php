@@ -1,6 +1,13 @@
 <!-- Include Config -->
 <?php
 require_once __DIR__ . '/../../../config.php';
+
+//auth check
+include __DIR__.'/../../../helpers/AppManager.php';
+$sm = AppManager::getSM();
+$username = $sm->getAttribute("username");
+if (!isset($username)) header('location: ../admin/auth/login.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +75,7 @@ require_once __DIR__ . '/../../../config.php';
             <img src="<?= asset('assets/img/avatar5.png') ?>" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">Musab Ibn Siraj</a>
+            <a href="#" class="d-block"><?= $username ?? '' ?></a>
           </div>
         </div>
 
@@ -133,6 +140,12 @@ require_once __DIR__ . '/../../../config.php';
                   </a>
                 </li>
               </ul>
+            </li>
+            <li class="nav-item">
+              <a href="<?= url('/views/admin/auth/logout.php') ?>" class="nav-link">
+                <i class="nav-icon far fa-circle text-danger"></i>
+                <p class="text">Logout</p>
+              </a>
             </li>
 
 
