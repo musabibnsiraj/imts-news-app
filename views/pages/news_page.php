@@ -36,7 +36,7 @@ $post = $cat->getById($postId);
               <h6 class="card-title"> <?= $post['title']; ?></h6>
 
               <div class="col-3 m-2">
-                <img class="img-fluid rounded mx-auto d-block " src="<?= asset('assets/img/post-images/' . $post['image']) ?>">
+                <img class="img-fluid rounded mx-auto d-block " src="<?= asset('assets/uploads/' . $post['image']) ?>">
               </div>
 
               <p class="card-text"><?= $post['summary']; ?></p>

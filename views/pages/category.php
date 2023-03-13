@@ -42,14 +42,14 @@ $posts = $pst->getByCatId($catId);
             foreach ($posts as $post) {
           ?>
             <!-- /.col-md-6 -->
-            <div class="col-lg-3">
+            <div class="col-lg-4 ">
 
               <div class="card card-primary card-outline">
                 <div class="card-body">
                   <h6 class="card-title"> <?= $post['title']; ?></h6>
 
                   <div class="m-2">
-                    <img class="img-fluid rounded mx-auto d-block " src="<?= asset('assets/img/post-images/' . $post['image']) ?>">
+                    <img class="img-fluid rounded mx-auto d-block " src="<?= asset('assets/uploads/' . $post['image']) ?>">
                   </div>
 
                   <p class="card-text"><?= $post['summary']; ?></p>
