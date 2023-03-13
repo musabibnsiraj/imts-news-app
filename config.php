@@ -8,7 +8,7 @@ define('LOG_PATH', 'log.txt');
 define('BASE_PATH', __DIR__);
 define('CURRENT_DOMAIN', current_domain());
 define('DISPLAY_ERROR', true);
-error_reporting(0);
+error_reporting(E_ERROR | E_PARSE);
 
 function current_domain()
 {
